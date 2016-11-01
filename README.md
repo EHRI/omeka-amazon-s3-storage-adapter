@@ -26,3 +26,4 @@ storage.adapterOptions.bucket = my-bucket-name
 storage.adapterOptions.region = eu-central-1
 ```
 
+**Note**: This plugin has not yet been tested much so use at your own risk!
