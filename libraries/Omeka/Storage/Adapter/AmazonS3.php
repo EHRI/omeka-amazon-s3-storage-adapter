@@ -73,13 +73,16 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
      */
     public function store($source, $dest)
     {
-        $this->_s3->putObject([
+        $result = $this->_s3->putObject([
             'ACL' => $this->_getAcl(),
             'Bucket' => $this->_getBucket(),
             'Expiration' => $this->_getExpiration(),
             'SourceFile' => $source,
             'Key' => $dest
         ]);
+        $objectName = $result->get('ObjectURL');
+        _log("Omeka_Storage_Adapter_AmazonS3: Stored '$source' as: $objectName");
+        unlink($source);
     }
 
     /**
@@ -90,7 +93,7 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
      */
     public function move($source, $dest)
     {
-        $this->_s3->copy(
+        $result = $this->_s3->copy(
             $this->_getBucket(),
             $source,
             $this->_getBucket(),
@@ -98,6 +101,8 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
             $this->_getAcl()
         );
         $this->delete($source);
+        $objectName = $result->get('ObjectURL');
+        _log("Omeka_Storage_Adapter_AmazonS3: Moved '$source' to: $objectName");
     }
 
     /**
@@ -111,6 +116,7 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
             'Bucket' => $this->_getBucket(),
             'Key' => $path
         ]);
+        _log("Omeka_Storage_Adapter_AmazonS3: Deleted: $path");
     }
 
     /**
