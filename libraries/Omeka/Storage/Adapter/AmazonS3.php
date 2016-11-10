@@ -76,7 +76,6 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
         $result = $this->_s3->putObject([
             'ACL' => $this->_getAcl(),
             'Bucket' => $this->_getBucket(),
-            'Expiration' => $this->_getExpiration(),
             'SourceFile' => $source,
             'Key' => $dest
         ]);
@@ -127,6 +126,17 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
      */
     public function getUri($path)
     {
+        if ($expiration = $this->_getExpiration()) {
+            $cmd = $this->_s3->getCommand('GetObject', [
+                'Bucket' => $this->_getBucket(),
+                'Key' => $path
+            ]);
+            $request = $this->_s3->createPresignedRequest($cmd, "+$expiration minutes");
+            $uri = (string)$request->getUri();
+            debug("Omeka_Storage_Adapter_AmazonS3: generating URI to expire in $expiration minutes: $uri");
+            return $uri;
+        }
+
         return $this->_s3->getObjectUrl($this->_getBucket(), $path);
     }
 
