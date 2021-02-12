@@ -3,7 +3,7 @@
     "description": "An Amazon S3 storage adapter for Omeka which uses Amazon's official AWS library.",
     "type": "project",
     "require": {
-        "aws/aws-sdk-php": "^3.19"
+        "aws/aws-sdk-php": "^3.173"
     },
     "license": "EUPL-1.1"
 }

@@ -6,7 +6,7 @@ the `Omeka_Storage_Adapter_ZendS3` which ships with the application.
 
 The main differences are:
 
- - this adapter uses the official AWS S3 SDK library
+ - this adapter uses the official AWS SDK library
  - it requires PHP 5.5 or above
  - requires you supply the AWS region in the configuration
  - it supports the V4 authorization mechanism that is required on AWS
@@ -26,4 +26,6 @@ storage.adapterOptions.bucket = my-bucket-name
 storage.adapterOptions.region = eu-central-1
 ```
 
-**Note**: This plugin has not yet been tested much so use at your own risk!
+*Note*: including the AWS SDK makes this plugin package very large since
+there is currently no way to depend on _just_ the S3-related parts. This
+will hopefully be remedied in future. 

@@ -1,0 +1,28 @@
+{
+  "name": "omeka-amazon-s3-storage-adapter",
+  "version": "1.0.0",
+  "description": "S3 storage adapter for Omeka that provides an alternative to the Omeka_Storage_Adapter_ZendS3 which ships with the application.",
+  "main": "plugin.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EHRI/omeka-amazon-s3-storage-adapter.git"
+  },
+  "keywords": [
+    "omeka",
+    "s3",
+    "aws"
+  ],
+  "author": "EHRI",
+  "license": "EUPL-1.2",
+  "bugs": {
+    "url": "https://github.com/EHRI/omeka-amazon-s3-storage-adapter/issues"
+  },
+  "homepage": "https://github.com/EHRI/omeka-amazon-s3-storage-adapter#README.md",
+  "devDependencies": {
+    "grunt": "^1.3.0",
+    "grunt-contrib-compress": "^2.0.0"
+  }
+}
