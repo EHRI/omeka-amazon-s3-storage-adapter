@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/EHRI/omeka-amazon-s3-storage-adapter#README.md",
   "devDependencies": {
-    "grunt": "^1.3.0",
+    "grunt": "^1.5.2",
     "grunt-contrib-compress": "^2.0.0"
   }
 }
