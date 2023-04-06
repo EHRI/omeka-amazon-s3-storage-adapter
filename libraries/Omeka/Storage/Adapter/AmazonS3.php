@@ -184,4 +184,20 @@ class Omeka_Storage_Adapter_AmazonS3 implements Omeka_Storage_Adapter_AdapterInt
     {
         return $this->_getExpiration() ? 'private' : 'public-read';
     }
+
+    /**
+     * Checks if a given object exists
+     *
+     * @param  string $object
+     * @return boolean
+     */
+    public function isObjectAvailable($object)
+    {
+        $response = $this->_s3->headObject([
+          'Bucket' => $this->_getBucket(),
+          'Key' => $object
+        ]);
+
+        return ($response->get('@metadata')['statusCode'] ?? false == 200);
+    }
 }

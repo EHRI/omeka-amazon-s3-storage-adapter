@@ -14,9 +14,10 @@ The main differences are:
 
 ## Usage
 
-1. Install the plugin by extracting it to the `plugins` directory in your Omeka instance and enabling
-   in admin/plugins
-2. Add the following to your Omeka `application/configuration/config.ini` file:
+1. Download repo as a zip file and extract it to a folder named `OmekaAmazonS3StorageAdapter` in the `plugins` directory in your Omeka instance.
+2. Run `composer install` within the plugin's folder to install the Amazon S3 PHP SDK.
+3. Enable the plugin in admin/plugins
+4. Add the following to your Omeka `application/configuration/config.ini` file:
 
 ```
 storage.adapter = Omeka_Storage_Adapter_AmazonS3
