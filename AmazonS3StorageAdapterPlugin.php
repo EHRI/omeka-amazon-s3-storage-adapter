@@ -7,6 +7,6 @@
 require_once('vendor/autoload.php');
 require_once('libraries/Omeka/Storage/Adapter/AmazonS3.php');
 
-class OmekaAmazonS3StorageAdapterPlugin extends Omeka_Plugin_AbstractPlugin
+class AmazonS3StorageAdapterPlugin extends Omeka_Plugin_AbstractPlugin
 {
 }
