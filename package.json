@@ -1,9 +1,10 @@
 {
   "name": "omeka-amazon-s3-storage-adapter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "S3 storage adapter for Omeka that provides an alternative to the Omeka_Storage_Adapter_ZendS3 which ships with the application.",
   "main": "plugin.php",
   "scripts": {
+    "dist": "grunt compress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
