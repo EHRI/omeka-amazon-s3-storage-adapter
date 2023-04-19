@@ -14,9 +14,9 @@ The main differences are:
 
 ## Usage
 
-1. Download repo as a zip file and extract it to a folder named `AmazonS3StorageAdapter` in the `plugins` directory in your Omeka instance.
-2. Run `composer install` within the plugin's folder to install the Amazon S3 PHP SDK.
-3. Enable the plugin in admin/plugins
+1. Download the latest [release](https://github.com/EHRI/omeka-amazon-s3-storage-adapter/releases) from GitHub
+2. Extract it to the Omeka `plugins` directory
+3. Enable the `AmazonS3StorageAdapter` plugin in admin/plugins
 4. Add the following to your Omeka `application/configuration/config.ini` file:
 
 ```
@@ -26,6 +26,14 @@ storage.adapterOptions.secretAccessKey = MY-SECRET-KEY
 storage.adapterOptions.bucket = my-bucket-name
 storage.adapterOptions.region = eu-central-1
 ```
+
+(Being sure to set the correct bucket name and region, in addition to your access key and secret.)
+
+To run the latest code from GitHub, rather than the last release:
+
+1. Download repo as a zip file
+2. Extract it to a folder named `AmazonS3StorageAdapter` in the plugins directory in your Omeka instance
+3. Run `composer install` within the plugin's folder to install the Amazon S3 PHP SDK
 
 *Note*: including the AWS SDK makes this plugin package very large since
 there is currently no way to depend on _just_ the S3-related parts. This
